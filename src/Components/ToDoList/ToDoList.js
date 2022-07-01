@@ -16,7 +16,7 @@ const ToDoList = () => {
       });
   }, [toDoTasks]);
 
-  // loading spinner
+  // load spinner while fetching data
   if (loading) {
     return <LoadingSpinner />;
   }
