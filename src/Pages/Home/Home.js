@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Footer from "../../Components/Footer/Footer";
 import ToDoList from "../../Components/ToDoList/ToDoList";
 
 const Home = () => {
@@ -63,6 +64,9 @@ const Home = () => {
             <ToDoList />
           </div>
         </div>
+      </div>
+      <div className="sticky bottom-0">
+        <Footer />
       </div>
     </div>
   );

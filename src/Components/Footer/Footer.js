@@ -2,20 +2,22 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-[#ddeff0] py-2">
+    <div className="w-full bg-[#ddeff0] py-2 mt-24">
       <div className="max-w-6xl mx-auto">
-        <div className="container border mx-auto">
-          <div className="flex items-center justify-between">
+        <div className="container border mx-auto py-3">
+          <div className="flex flex-col md:flex-row gap-y-5 items-center justify-between">
             <div className="flex items-center">
-              <a className="btn btn-ghost normal-case text-base">
+              <p className="flex items-center normal-case text-base mr-3">
                 <img
                   className="w-6 mr-2"
                   src="https://img.icons8.com/glyph-neue/344/todo-list.png"
                   alt=""
                 />
                 Task-To-Do
-              </a>
-              <p className="text-sm">
+              </p>
+            </div>
+            <div>
+              <p className="text-base md:text-sm">
                 Developed by{" "}
                 <a href="https://github.com/devnoman01">devnoman01</a> - All
                 right reserved.
