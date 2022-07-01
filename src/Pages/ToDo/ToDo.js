@@ -7,7 +7,7 @@ const ToDo = () => {
       <div className="container mx-auto px-3 lg:px-0">
         <h1 className="text-3xl text-center font-medium pt-7">To-Do Tasks</h1>
 
-        {/* todo task section */}
+        {/* todo tasks section */}
         <div className="p-5 max-w-xl mx-auto rounded-lg">
           <ToDoList />
         </div>
