@@ -7,27 +7,33 @@ const Home = () => {
   // function for handling add task
   const handleAddTask = () => {
     const title = titleRef.current.value;
-    console.log(title);
 
-    // declaring object for new task
-    const task = {
-      title: title,
-      status: "pending",
-    };
+    console.log();
 
-    // using post api to store task
-    const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task`;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(task),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        alert("New task added");
-      });
+    if (title.length > 2) {
+      // declaring object for new task
+      const task = {
+        title: title,
+        status: "pending",
+      };
+
+      // using post api to store task
+      const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task`;
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(task),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          alert("New task added");
+          titleRef.current.value = "";
+        });
+    } else {
+      alert("Task title must be at least 3 character or more");
+    }
   };
 
   return (
