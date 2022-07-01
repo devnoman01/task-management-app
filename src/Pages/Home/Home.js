@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ToDoTaskItem from "../../Components/ToDoTaskItem/ToDoTaskItem";
+import useToDoTasks from "../../hook/useToDoTasks";
 
 const Home = () => {
-  const [toDoTasks, setToDoTasks] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/todotask")
-      .then((res) => res.json())
-      .then((data) => {
-        setToDoTasks(data);
-      });
-  }, []);
+  const [toDoTasks, setToDoTasks] = useToDoTasks();
 
   return (
     <div>

@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ToDoTaskItem from "../../Components/ToDoTaskItem/ToDoTaskItem";
+import useToDoTasks from "../../hook/useToDoTasks";
 
 const ToDo = () => {
-  const [toDoTasks, setToDoTasks] = useState([]);
+  const [toDoTasks, setToDoTasks] = useToDoTasks();
 
-  useEffect(() => {
-    fetch("data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setToDoTasks(data);
-      });
-  }, []);
   return (
     <div className="max-w-6xl mx-auto">
       <div className="container mx-auto px-3 lg:px-0">
@@ -19,7 +13,7 @@ const ToDo = () => {
         <div className="p-5 max-w-xl mx-auto rounded-lg">
           <div className="my-3">
             {toDoTasks.map((task) => (
-              <ToDoTaskItem key={task.id} task={task} />
+              <ToDoTaskItem key={task._id} task={task} />
             ))}
           </div>
         </div>

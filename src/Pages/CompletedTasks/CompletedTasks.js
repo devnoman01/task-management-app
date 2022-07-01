@@ -5,7 +5,7 @@ const CompletedTasks = () => {
   const [completedTasks, setCompletedTasks] = useState([]);
 
   useEffect(() => {
-    fetch("data.json")
+    fetch("http://localhost:5000/completed-task")
       .then((res) => res.json())
       .then((data) => setCompletedTasks(data));
   }, []);
