@@ -52,7 +52,7 @@ const Home = () => {
                 ref={titleRef}
                 type="text"
                 placeholder="Task title"
-                className="input input-bordered input-sm lg:input-md w-full"
+                className="input input-bordered input-md w-full"
               />
             </div>
           </div>

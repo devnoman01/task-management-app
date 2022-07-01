@@ -8,11 +8,9 @@ const ToDoTaskItem = ({ task }) => {
   const [checked, setChecked] = useState(false);
   const [editable, setEditable] = useState(true);
 
+  // function for updating as completed
   const markAsComplete = (id) => {
-    console.log(`${id} marked as completed`);
-
     const status = "completed";
-
     const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task/${id}`;
     fetch(url, {
       method: "PATCH",
@@ -28,6 +26,7 @@ const ToDoTaskItem = ({ task }) => {
       });
   };
 
+  // function for deleting pending todo task
   const handleDelete = (id) => {
     const proceed = window.confirm("Remove task?");
     if (proceed) {
@@ -42,9 +41,12 @@ const ToDoTaskItem = ({ task }) => {
     }
   };
 
+  // function for updating task title
   const updateTask = (id) => {
     const newTitle = titleRef.current.value;
-    console.log(newTitle, id);
+    if (title == newTitle) {
+      console.log("ooo");
+    }
 
     const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task/${id}`;
     fetch(url, {
@@ -64,7 +66,7 @@ const ToDoTaskItem = ({ task }) => {
   return (
     <div className="bg-[#FFF3D5] px-3 py-2 my-4 border border-gray-200 rounded-md">
       <div className="flex item-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 w-full mr-3">
           <input
             type="checkbox"
             defaultChecked={checked}
@@ -72,7 +74,9 @@ const ToDoTaskItem = ({ task }) => {
             className="checkbox checkbox-sm"
           />
           <input
-            className={`${editable ? "bg-transparent" : "bg-white"}`}
+            className={`${
+              editable ? "bg-transparent" : "bg-white"
+            } w-full max-w-xl`}
             ref={titleRef}
             type="text"
             defaultValue={title}
@@ -83,7 +87,7 @@ const ToDoTaskItem = ({ task }) => {
           {editable && (
             <button onClick={() => setEditable(false)}>
               <img
-                className="p-1 w-6 border border-black rounded-xl"
+                className="p-1 w-8 border border-black rounded-xl"
                 src="https://img.icons8.com/pastel-glyph/344/edit--v1.png"
                 alt=""
               />
