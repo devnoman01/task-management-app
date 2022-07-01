@@ -9,8 +9,6 @@ const Home = () => {
   const handleAddTask = () => {
     const title = titleRef.current.value;
 
-    console.log();
-
     if (title.length > 2) {
       // declaring object for new task
       const task = {

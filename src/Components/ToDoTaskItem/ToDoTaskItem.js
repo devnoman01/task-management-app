@@ -6,7 +6,7 @@ const ToDoTaskItem = ({ task }) => {
   const titleRef = useRef("");
 
   const [checked, setChecked] = useState(false);
-  const [editable, setEditable] = useState(true);
+  const [editable, setNotEditable] = useState(true);
 
   // function for updating as completed
   const markAsComplete = (id) => {
@@ -21,7 +21,7 @@ const ToDoTaskItem = ({ task }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setEditable(true);
+        setNotEditable(true);
         alert("Updated as complete");
       });
   };
@@ -44,23 +44,26 @@ const ToDoTaskItem = ({ task }) => {
   // function for updating task title
   const updateTask = (id) => {
     const newTitle = titleRef.current.value;
-    if (title == newTitle) {
-      console.log("ooo");
-    }
 
-    const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task/${id}`;
-    fetch(url, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ newTitle }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setEditable(true);
-        alert("Updated");
-      });
+    // validating task info change
+    if (title == newTitle) {
+      alert("No change to update");
+      setNotEditable(true);
+    } else {
+      const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task/${id}`;
+      fetch(url, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ newTitle }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setNotEditable(true);
+          alert("Updated");
+        });
+    }
   };
 
   return (
@@ -85,7 +88,7 @@ const ToDoTaskItem = ({ task }) => {
         </div>
         <div className="flex items-center gap-2">
           {editable && (
-            <button onClick={() => setEditable(false)}>
+            <button onClick={() => setNotEditable(false)}>
               <img
                 className="p-1 w-8 border border-black rounded-xl"
                 src="https://img.icons8.com/pastel-glyph/344/edit--v1.png"
