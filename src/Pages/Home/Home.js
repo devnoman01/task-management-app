@@ -5,7 +5,7 @@ const Home = () => {
   const [toDoTasks, setToDoTasks] = useState([]);
 
   useEffect(() => {
-    fetch("data.json")
+    fetch("http://localhost:5000/todotask")
       .then((res) => res.json())
       .then((data) => {
         setToDoTasks(data);
