@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Swal from "sweetalert2";
 import Footer from "../../Components/Footer/Footer";
 import ToDoList from "../../Components/ToDoList/ToDoList";
 
@@ -27,11 +28,20 @@ const Home = () => {
       })
         .then((res) => res.json())
         .then((result) => {
-          alert("New task added");
+          Swal.fire({
+            title: "New Task Added",
+            icon: "success",
+            showConfirmButton: false,
+          });
           titleRef.current.value = "";
         });
     } else {
-      alert("Task title must be at least 3 character or more");
+      Swal.fire({
+        title: "Please Check Task Title",
+        icon: "info",
+        text: "Task title must be at least 3 character or more",
+        showConfirmButton: false,
+      });
     }
   };
 

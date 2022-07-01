@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Swal from "sweetalert2";
 
 const ToDoTaskItem = ({ task }) => {
   const { _id, title } = task;
@@ -22,23 +23,40 @@ const ToDoTaskItem = ({ task }) => {
       .then((res) => res.json())
       .then((data) => {
         setNotEditable(true);
-        alert("Updated as complete");
+        Swal.fire({
+          title: "Updated Task as Completed",
+          icon: "success",
+          showConfirmButton: false,
+        });
       });
   };
 
   // function for deleting pending todo task
   const handleDelete = (id) => {
-    const proceed = window.confirm("Remove task?");
-    if (proceed) {
-      const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task/?id=${id}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          alert("Task Removed");
-        });
-    }
+    Swal.fire({
+      title: "Remove Task?",
+      text: "Are you sure to remove the task?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#F24C4C",
+      cancelButtonColor: "#5FD068",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task/?id=${id}`;
+        fetch(url, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            Swal.fire({
+              title: "Task Removed",
+              icon: "info",
+              showConfirmButton: false,
+            });
+          });
+      }
+    });
   };
 
   // function for updating task title
@@ -47,7 +65,12 @@ const ToDoTaskItem = ({ task }) => {
 
     // validating task info change
     if (title == newTitle) {
-      alert("No change to update");
+      Swal.fire({
+        title: "No change to update",
+        icon: "info",
+        showConfirmButton: true,
+        confirmButtonColor: "#5FD068",
+      });
       setNotEditable(true);
     } else {
       const url = `https://friendly-leaf-62778.herokuapp.com/all-todo-task/${id}`;
@@ -61,7 +84,11 @@ const ToDoTaskItem = ({ task }) => {
         .then((res) => res.json())
         .then((data) => {
           setNotEditable(true);
-          alert("Updated");
+          Swal.fire({
+            title: "Task Update Successful",
+            icon: "success",
+            showConfirmButton: false,
+          });
         });
     }
   };

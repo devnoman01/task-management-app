@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="w-full bg-[#ddeff0] py-2 mt-24">
       <div className="max-w-6xl mx-auto">
-        <div className="container border mx-auto py-3">
+        <div className="container border px-5 mx-auto py-3">
           <div className="flex flex-col md:flex-row gap-y-5 items-center justify-between">
             <div className="flex items-center">
               <p className="flex items-center normal-case text-base mr-3">
@@ -18,9 +18,10 @@ const Footer = () => {
             </div>
             <div>
               <p className="text-base md:text-sm">
-                Developed by{" "}
-                <a href="https://github.com/devnoman01">devnoman01</a> - All
-                right reserved.
+                Desing and development -{" "}
+                <a className="font-medium" href="https://github.com/devnoman01">
+                  devnoman01
+                </a>
               </p>
             </div>
             <div className="flex items-center gap-3">
