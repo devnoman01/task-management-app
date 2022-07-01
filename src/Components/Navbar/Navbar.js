@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="w-full bg-[#ddeff0]">
-      <div className="max-w-6xl mx-auto border">
-        <div className="navbar container mx-auto border py-0">
+      <div className="max-w-6xl mx-auto px-0">
+        <div className="navbar container border mx-auto py-0 px-0">
           <div className="navbar lg:navbar-start flex justify-between">
             <Link to="/" className="btn btn-ghost normal-case text-xl">
               <img
