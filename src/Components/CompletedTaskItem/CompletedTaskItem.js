@@ -1,7 +1,7 @@
 import React from "react";
 
 const CompletedTaskItem = ({ task }) => {
-  // const { title } = task;
+  const { title } = task;
 
   return (
     <div className="bg-[#ddeff0] px-3 py-2 my-3 border border-gray-200 rounded-md">
@@ -12,8 +12,7 @@ const CompletedTaskItem = ({ task }) => {
             src="https://img.icons8.com/emoji/452/check-mark-emoji.png"
             alt=""
           />
-          {/* <p>{title}</p> */}
-          <p>Sample Task 1</p>
+          <p>{title}</p>
         </div>
       </div>
     </div>
