@@ -6,6 +6,7 @@ const CompletedTasks = () => {
   const [completedTasks, setCompletedTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // fetching all completed tasks
   useEffect(() => {
     fetch("https://friendly-leaf-62778.herokuapp.com/completed-task")
       .then((res) => res.json())
@@ -24,7 +25,9 @@ const CompletedTasks = () => {
         {/* todo task section */}
         <div className="p-5 max-w-xl mx-auto rounded-lg">
           <div className="my-3">
+            {/* show loading spinner while fetching */}
             {loading && <LoadingSpinner />}
+
             {completedTasks.map((task) => (
               <CompletedTaskItem key={task._id} task={task} />
             ))}

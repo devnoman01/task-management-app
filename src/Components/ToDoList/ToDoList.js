@@ -6,7 +6,7 @@ const ToDoList = () => {
   const [toDoTasks, setToDoTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  //   fetching all todo pending tasks
+  // fetching all todo pending tasks
   useEffect(() => {
     fetch("https://friendly-leaf-62778.herokuapp.com/all-todo-task")
       .then((res) => res.json())
