@@ -14,9 +14,7 @@ const ToDo = () => {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="container mx-auto px-3 lg:px-0">
-        <h1 className="text-3xl text-center font-medium pt-7 mb-0">
-          To-Do Tasks
-        </h1>
+        <h1 className="text-3xl text-center font-medium pt-7">To-Do Tasks</h1>
         {/* todo task section */}
         <div className="p-5 max-w-xl mx-auto rounded-lg">
           <div className="my-3">
