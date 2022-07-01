@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ToDoTaskItem from "../../Components/ToDoTaskItem/ToDoTaskItem";
 
 const Home = () => {
+  const [toDoTasks, setToDoTasks] = useState([]);
+
+  useEffect(() => {
+    fetch("data.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setToDoTasks(data);
+      });
+  }, []);
+
   return (
     <div>
       <div className="max-w-6xl mx-auto">
@@ -28,9 +38,9 @@ const Home = () => {
           <div className="p-5 max-w-xl mx-auto rounded-lg my-8 border shadow-md">
             <h3 className="text-center text-xl font-medium mb-3">Task To-Do</h3>
             <div className="my-3">
-              <ToDoTaskItem />
-              <ToDoTaskItem />
-              <ToDoTaskItem />
+              {toDoTasks.map((task) => (
+                <ToDoTaskItem key={task.id} task={task} />
+              ))}
             </div>
           </div>
         </div>
