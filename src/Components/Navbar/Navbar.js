@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CustomLink from "../CustomLink/CustomLink";
 
 const Navbar = () => {
   return (
@@ -36,16 +37,16 @@ const Navbar = () => {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link to="/">Home</Link>
+                  <CustomLink to="/">Home</CustomLink>
                 </li>
                 <li>
-                  <Link to="/to-do">To-Do</Link>
+                  <CustomLink to="/to-do">To-Do</CustomLink>
                 </li>
                 <li>
-                  <Link to="/completed-tasks">Completed Tasks</Link>
+                  <CustomLink to="/completed-tasks">Completed Tasks</CustomLink>
                 </li>
                 <li>
-                  <Link to="/calender">Calender</Link>
+                  <CustomLink to="/calender">Calender</CustomLink>
                 </li>
               </ul>
             </div>
@@ -53,16 +54,16 @@ const Navbar = () => {
           <div className="navbar-end hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li>
-                <Link to="/">Home</Link>
+                <CustomLink to="/">Home</CustomLink>
               </li>
               <li>
-                <Link to="/to-do">To-Do</Link>
+                <CustomLink to="/to-do">To-Do</CustomLink>
               </li>
               <li>
-                <Link to="/completed-tasks">Completed Tasks</Link>
+                <CustomLink to="/completed-tasks">Completed Tasks</CustomLink>
               </li>
               <li>
-                <Link to="/calender">Calender</Link>
+                <CustomLink to="/calender">Calender</CustomLink>
               </li>
             </ul>
           </div>
